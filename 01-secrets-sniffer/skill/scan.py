@@ -4,10 +4,13 @@ import json
 import sys
 
 # Regex patterns to catch potential secrets
+# Updated to be more permissive to catch our "Fake" GitHub-safe keys
 PATTERNS = {
     "AWS Key": r"AKIA[0-9A-Z]{16}",
-    "Stripe Key": r"sk_live_[0-9a-zA-Z_]{10,}", 
-    "Generic Secret": r"(key|password|secret|token)\s*=\s*['\"][a-zA-Z0-9_\-]{10,}['\"]"
+    # Matches anything starting with sk_live_ (non-whitespace)
+    "Stripe Key": r"sk_live_\S+", 
+    # Catch generic keys/passwords that are 8+ chars long
+    "Generic Secret": r"(key|password|secret|token)\s*=\s*['\"][a-zA-Z0-9_\-]{8,}['\"]"
 }
 
 def scan_directory(directory):
@@ -48,7 +51,8 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         target_dir = sys.argv[1]
         
-    print(f"Scanning directory: {target_dir}...")
-    matches = scan_directory(target_dir)
+    # NOTE: We removed the print("Scanning...") line here
+    # so the output is PURE JSON for the Agent to read.
     
+    matches = scan_directory(target_dir)
     print(json.dumps(matches, indent=2))
