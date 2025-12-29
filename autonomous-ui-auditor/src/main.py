@@ -29,7 +29,7 @@ async def run_audit_agent(url: str):
         # 3. TOOL 1: Take Screenshot (Visual Data)
         print("👁️  Agent is looking at the page...")
         screenshot_path = settings.OUTPUT_DIR / "audit_screenshot.png"
-        await page.screenshot(path=str(screenshot_path), full_page=False)
+        await page.screenshot(path=str(screenshot_path), full_page=True)
         
         # Convert image for OpenAI
         with open(screenshot_path, "rb") as img:
@@ -96,5 +96,5 @@ async def run_audit_agent(url: str):
 
 if __name__ == "__main__":
     # Change this URL to whatever you want to test
-    TARGET_URL = "https://google.com" 
+    TARGET_URL = "https://youfirst-agency.vercel.app/" 
     asyncio.run(run_audit_agent(TARGET_URL))
