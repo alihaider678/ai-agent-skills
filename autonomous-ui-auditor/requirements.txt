@@ -1,0 +1,11 @@
+# --- Core Framework ---
+mcp              # The Model Context Protocol SDK
+pydantic         # Data validation
+python-dotenv    # For reading the .env file
+
+# --- The Hands (Browser Automation) ---
+playwright      # Controls the browser
+aiofiles        # Async file handling
+
+# --- Utilities ---
+pillow          # Image processing
