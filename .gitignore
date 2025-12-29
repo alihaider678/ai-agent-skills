@@ -10,3 +10,10 @@ Thumbs.db
 
 # Ignore environment variables / secrets (Safe practice)
 .env
+
+
+# Output artifacts (We don't want screenshots in Git)
+**/output/*
+
+# But keep the .keep file if it exists anywhere
+!**/output/.keep
