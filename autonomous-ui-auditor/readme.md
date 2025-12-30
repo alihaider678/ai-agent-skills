@@ -73,7 +73,7 @@ The agent generates a structured report for every page visited:
 > **✅ REPORT FOR: ABOUT_PAGE**
 >
 > * **Visuals:** "The contrast on the 'Call to Action' button is too low for mobile users."
-> * **Accessibility:** "Critical: Missing <main> landmark. Found 3 buttons without ARIA labels."
+> * **Accessibility:** "Critical: Missing `<main>` landmark. Found 3 buttons without ARIA labels."
 > * **Code Fix:** "Recommended Tailwind change: `text-gray-400` -> `text-gray-700`."
 
 ---
