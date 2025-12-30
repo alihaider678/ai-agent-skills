@@ -1,0 +1,16 @@
+# --- AI Core ---
+openai
+chromadb
+tiktoken
+
+# --- Data Ingestion (The Tank) ---
+yt-dlp>=2023.10.0       # Robust YouTube downloader
+webvtt-py>=0.4.6        # Parser to clean subtitle files
+
+# --- Data Ingestion (The Source) ---
+youtube-transcript-api
+requests
+
+# --- Utilities ---
+python-dotenv
+colorama
